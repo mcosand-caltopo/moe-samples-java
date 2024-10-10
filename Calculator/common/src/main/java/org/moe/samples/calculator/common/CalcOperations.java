@@ -29,10 +29,17 @@
 
 package org.moe.samples.calculator.common;
 
+import javax.net.ssl.HttpsURLConnection;
+import java.net.URL;
+
 public class CalcOperations {
 
     private static double sum(double a, double b){
         try{
+            String url = "https://google.com";
+            HttpsURLConnection conn = (HttpsURLConnection) new URL(url).openConnection();
+            System.out.println("RESPONSE CODE " + conn.getResponseCode());
+
             return a+b;
         }
         catch(Exception ex) {
