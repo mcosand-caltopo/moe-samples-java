@@ -40,3 +40,16 @@ eclipse {
         natures 'org.multi-os-engine.project'
     }
 }
+
+project.afterEvaluate {
+  // Hack to work around errors relating to afterEvaluate
+  moeMainDebugIphoneosXcodeBuild.mustRunAfter noOp
+  moeMainDebugIphonesimulatorXcodeBuild.mustRunAfter noOp
+  moeMainReleaseIphoneosXcodeBuild.mustRunAfter noOp
+  moeMainReleaseIphonesimulatorXcodeBuild.mustRunAfter noOp
+}
+task noOp {
+  doLast {
+    println "NoOp"
+  }
+}
