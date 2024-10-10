@@ -38,13 +38,11 @@ public class CalcOperations {
         try{
             String url = "https://google.com";
             HttpsURLConnection conn = (HttpsURLConnection) new URL(url).openConnection();
-            System.out.println("RESPONSE CODE " + conn.getResponseCode());
-
-            return a+b;
+            return conn.getResponseCode();
         }
         catch(Exception ex) {
             ex.printStackTrace();
-            return 0.0;
+            return -1.0;
         }
     }
 
